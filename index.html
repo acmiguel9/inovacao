@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WhiteSync - Digitaliza o teu quadro branco</title>
+<meta name="description" content="WhiteSync digitaliza o conteudo do quadro em segundos. Portatil, offline, PDF export.">
+<link rel="stylesheet" href="style.css?v=4">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="loading-overlay">
+<div class="logo-text">White<span>Sync</span></div>
+<div id="loading-bar-track"><div id="loading-bar-fill"></div></div>
+<div id="loading-label">0%</div>
+</div>
+<canvas id="ws-canvas"></canvas>
+<nav id="navbar">
+<a href="#" class="nav-logo">
+<svg class="logo-mark" viewBox="0 0 32 32" fill="none"><rect x="2" y="6" width="28" height="20" rx="3" fill="#0A1628" stroke="#1E6FFF" stroke-width="1.5"/><line x1="6" y1="16" x2="26" y2="16" stroke="#1E6FFF" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"/><circle cx="16" cy="6" r="2.5" fill="#00C9B1"/></svg>
+White<span>Sync</span></a>
+<div class="nav-links">
+<a href="#how" data-i18n="nav.how"></a>
+<a href="#features" data-i18n="nav.features"></a>
+<a href="#usecases" data-i18n="nav.usecases"></a>
+<a href="#pricing" data-i18n="nav.pricing"></a>
+</div>
+<div class="nav-right">
+<div class="lang-toggle">
+<button class="lang-btn active" data-lang="pt">PT</button>
+<button class="lang-btn" data-lang="en">EN</button>
+</div>
+<a href="#contact"><button class="btn-nav" data-i18n="nav.cta"></button></a>
+</div>
+</nav>
+<section id="hero">
+<div class="hero-content">
+<div class="hero-eyebrow"><span class="pulse-dot"></span><span data-i18n="hero.eyebrow"></span></div>
+<h1 class="hero-title" data-i18n="hero.title"></h1>
+<p class="hero-subtitle" data-i18n="hero.sub"></p>
+<div class="hero-actions">
+<a href="#contact"><button class="btn-primary" data-i18n="hero.cta1"></button></a>
+<a href="#showcase-outer"><button class="btn-ghost" data-i18n="hero.cta2"></button></a>
+</div>
+<div class="hero-stats">
+<div><div class="hero-stat-value" data-i18n="hero.stat1.value"></div><div class="hero-stat-label" data-i18n="hero.stat1.label"></div></div>
+<div><div class="hero-stat-value" data-i18n="hero.stat2.value"></div><div class="hero-stat-label" data-i18n="hero.stat2.label"></div></div>
+<div><div class="hero-stat-value" data-i18n="hero.stat3.value"></div><div class="hero-stat-label" data-i18n="hero.stat3.label"></div></div>
+</div>
+</div>
+</section>
+<div id="showcase-outer">
+<div id="showcase-sticky">
+<div class="showcase-panels">
+<div class="showcase-panel visible" data-panel="0">
+<div class="showcase-step"><span data-i18n="sc.step"></span> 01</div>
+<h2 class="showcase-title" data-i18n="sc.0.title"></h2>
+<p class="showcase-desc" data-i18n="sc.0.desc"></p>
+</div>
+<div class="showcase-panel" data-panel="1">
+<div class="showcase-step"><span data-i18n="sc.step"></span> 02</div>
+<h2 class="showcase-title" data-i18n="sc.1.title"></h2>
+<p class="showcase-desc" data-i18n="sc.1.desc"></p>
+</div>
+<div class="showcase-panel" data-panel="2">
+<div class="showcase-step"><span data-i18n="sc.step"></span> 03</div>
+<h2 class="showcase-title" data-i18n="sc.2.title"></h2>
+<p class="showcase-desc" data-i18n="sc.2.desc"></p>
+</div>
+</div>
+<div class="scroll-hint"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>scroll</div>
+</div>
+</div>
+<section id="how" class="section-light">
+<div class="section-inner">
+<p class="section-label" data-i18n="how.label"></p>
+<h2 class="section-title reveal" data-i18n="how.title"></h2>
+<p class="section-sub reveal" data-i18n="how.sub"></p>
+<div class="steps-grid">
+<div class="step-card reveal">
+<div class="step-number">1</div>
+<div class="step-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="#1E6FFF" stroke-width="2"/><circle cx="24" cy="12" r="5" fill="#00C9B1"/></svg></div>
+<div class="step-title" data-i18n="how.s1.title"></div>
+<div class="step-desc" data-i18n="how.s1.desc"></div>
+</div>
+<div class="step-card reveal">
+<div class="step-number">2</div>
+<div class="step-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="#1E6FFF" stroke-width="2"/><line x1="8" y1="24" x2="40" y2="24" stroke="#1E6FFF" stroke-width="2" stroke-dasharray="3 2"/><circle cx="24" cy="12" r="4" fill="#1E6FFF"/></svg></div>
+<div class="step-title" data-i18n="how.s2.title"></div>
+<div class="step-desc" data-i18n="how.s2.desc"></div>
+</div>
+<div class="step-card reveal">
+<div class="step-number">3</div>
+<div class="step-icon"><svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="22" height="28" rx="3" stroke="#1E6FFF" stroke-width="2"/><path d="M28 18h12M28 24h14M28 30h10" stroke="#00C9B1" stroke-width="2" stroke-linecap="round"/><path d="M13 22l3 3 6-6" stroke="#1E6FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="step-title" data-i18n="how.s3.title"></div>
+<div class="step-desc" data-i18n="how.s3.desc"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="features" class="section-dark">
+<div class="section-inner">
+<p class="section-label" data-i18n="feat.label"></p>
+<h2 class="section-title reveal" data-i18n="feat.title"></h2>
+<p class="section-sub reveal" data-i18n="feat.sub"></p>
+<div class="features-grid">
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E6FFF" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 12l4-4 4 4 4-6 3 3" stroke-linecap="round"/></svg></div><div class="feature-title" data-i18n="feat.1.title"></div><div class="feature-desc" data-i18n="feat.1.desc"></div></div>
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E6FFF" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg></div><div class="feature-title" data-i18n="feat.2.title"></div><div class="feature-desc" data-i18n="feat.2.desc"></div></div>
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00C9B1" stroke-width="2"><path d="M1 6l5 5 4-8 4 12 4-6 5 5"/></svg></div><div class="feature-title" data-i18n="feat.3.title"></div><div class="feature-desc" data-i18n="feat.3.desc"></div></div>
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E6FFF" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="8" y1="5" x2="8" y2="19"/></svg></div><div class="feature-title" data-i18n="feat.4.title"></div><div class="feature-desc" data-i18n="feat.4.desc"></div></div>
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00C9B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div><div class="feature-title" data-i18n="feat.5.title"></div><div class="feature-desc" data-i18n="feat.5.desc"></div></div>
+<div class="feature-card reveal"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E6FFF" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><circle cx="12" cy="17" r="1" fill="#1E6FFF"/></svg></div><div class="feature-title" data-i18n="feat.6.title"></div><div class="feature-desc" data-i18n="feat.6.desc"></div></div>
+</div>
+</div>
+</section>
+<section id="usecases" class="section-light">
+<div class="section-inner">
+<p class="section-label" data-i18n="uc.label"></p>
+<h2 class="section-title reveal" data-i18n="uc.title"></h2>
+<p class="section-sub reveal" data-i18n="uc.sub"></p>
+<div class="tabs-header reveal">
+<button class="tab-btn active" data-tab="tab-biz" data-i18n="uc.tab1"></button>
+<button class="tab-btn" data-tab="tab-school" data-i18n="uc.tab2"></button>
+<button class="tab-btn" data-tab="tab-uni" data-i18n="uc.tab3"></button>
+</div>
+<div class="tab-content active" id="tab-biz">
+<div><h3 data-i18n="uc.biz.h"></h3><ul class="use-case-list"><li data-i18n="uc.biz.1"></li><li data-i18n="uc.biz.2"></li><li data-i18n="uc.biz.3"></li><li data-i18n="uc.biz.4"></li></ul></div>
+<div class="use-case-img"><svg viewBox="0 0 100 100" fill="none"><rect x="10" y="25" width="80" height="50" rx="4" fill="#E8EEF8" stroke="#1E6FFF" stroke-width="2"/><path class="uc-scan-line" d="M10 50h80" stroke="#1E6FFF" stroke-width="1.5" stroke-dasharray="5 3"/><g class="uc-pulse" style="transform-origin: 50px 25px;"><circle cx="50" cy="25" r="8" fill="#00C9B1"/><path d="M46 25l3 3 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></g></svg></div>
+</div>
+<div class="tab-content" id="tab-school">
+<div><h3 data-i18n="uc.school.h"></h3><ul class="use-case-list"><li data-i18n="uc.school.1"></li><li data-i18n="uc.school.2"></li><li data-i18n="uc.school.3"></li><li data-i18n="uc.school.4"></li></ul></div>
+<div class="use-case-img"><svg viewBox="0 0 100 100" fill="none"><rect x="10" y="20" width="80" height="60" rx="4" fill="#E8EEF8" stroke="#1E6FFF" stroke-width="2"/><line class="uc-draw-1" x1="25" y1="40" x2="75" y2="40" stroke="#4A5568" stroke-width="2" stroke-linecap="round"/><line class="uc-draw-2" x1="25" y1="55" x2="65" y2="55" stroke="#4A5568" stroke-width="2" stroke-linecap="round"/><line class="uc-draw-3" x1="25" y1="65" x2="70" y2="65" stroke="#4A5568" stroke-width="2" stroke-linecap="round"/><circle class="uc-pulse" cx="50" cy="20" r="8" fill="#1E6FFF" style="transform-origin: 50px 20px;"/></svg></div>
+</div>
+<div class="tab-content" id="tab-uni">
+<div><h3 data-i18n="uc.uni.h"></h3><ul class="use-case-list"><li data-i18n="uc.uni.1"></li><li data-i18n="uc.uni.2"></li><li data-i18n="uc.uni.3"></li><li data-i18n="uc.uni.4"></li></ul></div>
+<div class="use-case-img"><svg viewBox="0 0 100 100" fill="none" class="uc-float"><path d="M28 48 v15 c0 10 12 15 22 15 s22 -5 22 -15 v-15" fill="#E8EEF8" stroke="#1E6FFF" stroke-width="2"/><path d="M50 20 L15 38 L50 56 L85 38 Z" fill="#E8EEF8" stroke="#1E6FFF" stroke-width="2" stroke-linejoin="round"/><path d="M50 38 Q 80 45 80 65" stroke="#00C9B1" stroke-width="2" stroke-linecap="round"/><circle cx="80" cy="68" r="3" fill="#00C9B1"/><circle cx="50" cy="38" r="2.5" fill="#1E6FFF"/></svg></div>
+</div>
+</div>
+</section>
+<section id="comparison" class="section-light" style="padding-top:0">
+<div class="section-inner">
+<p class="section-label" data-i18n="cmp.label"></p>
+<h2 class="section-title reveal" data-i18n="cmp.title"></h2>
+<p class="section-sub reveal" data-i18n="cmp.sub"></p>
+<div style="overflow-x:auto">
+<table class="comparison-table reveal">
+<thead><tr><th></th><th class="col-ws">WhiteSync</th><th>Logitech Scribe</th><th>SmartBoard</th></tr></thead>
+<tbody>
+<tr><td data-i18n="cmp.row1"></td><td class="col-ws"><strong>€600</strong></td><td>~1.499€</td><td>€2.000–€8.000</td></tr>
+<tr><td data-i18n="cmp.row2"></td><td class="col-ws" data-i18n="cmp.ws.setup"></td><td data-i18n="cmp.sc.setup"></td><td data-i18n="cmp.sb.setup"></td></tr>
+<tr><td data-i18n="cmp.row3"></td><td class="col-ws"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="partial">~</span></td></tr>
+<tr><td data-i18n="cmp.row4"></td><td class="col-ws"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="partial">~</span></td></tr>
+<tr><td data-i18n="cmp.row5"></td><td class="col-ws"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+<tr><td data-i18n="cmp.row6"></td><td class="col-ws"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="pricing" class="section-dark">
+<div class="section-inner" style="text-align:center">
+<p class="section-label" data-i18n="price.label"></p>
+<h2 class="section-title reveal" data-i18n="price.title"></h2>
+<p class="section-sub reveal" style="margin:0 auto 48px" data-i18n="price.sub"></p>
+<div class="pricing-wrapper">
+<div class="pricing-card reveal">
+<div class="pricing-badge" data-i18n="price.badge"></div>
+<div class="pricing-name" data-i18n="price.name"></div>
+<div class="pricing-price"><sup>€</sup>600</div>
+<div class="pricing-period" data-i18n="price.period"></div>
+<hr class="pricing-divider">
+<ul class="pricing-features">
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="price.f1"></span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="price.f2"></span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="price.f3"></span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="price.f4"></span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="price.f5"></span></li>
+</ul>
+<button class="btn-pricing" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="price.cta"></button>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="section-dark" style="border-top:1px solid rgba(255,255,255,0.06)">
+<div class="section-inner">
+<div class="contact-grid">
+<div class="contact-info">
+<p class="section-label" data-i18n="contact.label"></p>
+<h2 data-i18n="contact.title"></h2>
+<p data-i18n="contact.sub"></p>
+<div class="contact-detail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> whitesync@ipleiria.pt</div>
+<div class="contact-detail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Instituto Politecnico de Leiria, Portugal</div>
+</div>
+<div class="contact-form">
+<div class="form-row">
+<div class="field"><label data-i18n="contact.f.name"></label><input type="text" id="inp-name" placeholder="Nome / Name"></div>
+<div class="field"><label data-i18n="contact.f.email"></label><input type="email" id="inp-email" placeholder="email@example.com"></div>
+</div>
+<div class="field"><label data-i18n="contact.f.org"></label><input type="text" id="inp-org" placeholder="Organizacao / Organisation"></div>
+<div class="field">
+<label data-i18n="contact.f.type"></label>
+<select id="inp-type">
+<option value="" data-i18n="contact.f.type.p"></option>
+<option value="empresa" data-i18n="contact.f.type.1"></option>
+<option value="escola" data-i18n="contact.f.type.2"></option>
+<option value="universidade" data-i18n="contact.f.type.3"></option>
+<option value="outro" data-i18n="contact.f.type.4"></option>
+</select>
+</div>
+<div class="field"><label data-i18n="contact.f.msg"></label><textarea id="inp-msg" rows="4" placeholder="..."></textarea></div>
+<button class="btn-submit" id="btn-submit" data-i18n="contact.f.cta"></button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="feedback" class="section-light">
+<div class="section-inner" style="display:flex; justify-content:center; flex-direction:column; align-items:center; text-align:center;">
+<h2 class="section-title reveal" data-i18n="feedback.title">Deixa o teu feedback</h2>
+<p class="section-sub reveal" data-i18n="feedback.sub">Ajuda-nos a melhorar o WhiteSync preenchendo o formulário de avaliação do protótipo.</p>
+<div class="reveal" style="width: 100%; max-width: 800px; margin-top: 1rem;">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeeOBYoORa6EfTalYTnBlfQAtJ8ZZwnOjcEiwA7825x0rgmsw/viewform?embedded=true" width="100%" height="2000" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-card); background: transparent;">A carregar…</iframe>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-logo">White<span>Sync</span></div>
+<div class="footer-links">
+<a href="#how" data-i18n="nav.how"></a>
+<a href="#features" data-i18n="nav.features"></a>
+<a href="#pricing" data-i18n="nav.pricing"></a>
+<a href="#contact" data-i18n="nav.cta"></a>
+</div>
+<div class="footer-copy" data-i18n="footer.copy"></div>
+</div>
+</footer>
+<script type="module" src="main.js?v=12"></script>
+</body>
+</html>
