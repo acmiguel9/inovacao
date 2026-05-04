@@ -44,6 +44,12 @@ const loadingOverlay = document.getElementById('loading-overlay');
 const loadingBarFill  = document.getElementById('loading-bar-fill');
 const loadingLabel    = document.getElementById('loading-label');
 
+function setLoadingProgress(pct) {
+  const safePct = Math.min(100, Math.max(0, pct));
+  if (loadingBarFill) loadingBarFill.style.width = safePct + '%';
+  if (loadingLabel) loadingLabel.textContent = safePct + '%';
+}
+
 const loader = new GLTFLoader();
 loader.load(
   'Prototipo.glb',
@@ -98,14 +104,15 @@ loader.load(
     tPosX = 1.6; tPosY = -0.3;
     modelReady = true;
 
+    setLoadingProgress(100);
+
     loadingOverlay.style.opacity = '0';
-    setTimeout(() => { loadingOverlay.style.display = 'none'; }, 700);
+    setTimeout(() => { loadingOverlay.style.display = 'none'; }, 260);
   },
   (progress) => {
     if (progress.total > 0) {
       const pct = Math.round((progress.loaded / progress.total) * 100);
-      if (loadingBarFill) loadingBarFill.style.width = pct + '%';
-      if (loadingLabel)   loadingLabel.textContent   = pct + '%';
+      setLoadingProgress(Math.min(99, pct));
     }
   },
   (err) => {
